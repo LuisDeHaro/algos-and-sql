@@ -1,8 +1,8 @@
 
 Table: `Trips`
 
-`
-+-------------+----------+
+```
++-------------+----------+ 
 | Column Name | Type     |
 +-------------+----------+
 | Id          | int      |
@@ -15,13 +15,13 @@ Table: `Trips`
 Id is the primary key for this table.
 The table holds all taxi trips. Each trip has a unique Id, while Client_Id and Driver_Id are foreign keys to the Users_Id at the Users table.
 Status is an ENUM type of (‘completed’, ‘cancelled_by_driver’, ‘cancelled_by_client’).
-`
+```
 
 `
 Table: Users
 `
 
-`
+```
 +-------------+----------+
 | Column Name | Type     |
 +-------------+----------+
@@ -32,7 +32,7 @@ Table: Users
 Users_Id is the primary key for this table.
 The table holds all users. Each user has a unique Users_Id, and Role is an ENUM type of (‘client’, ‘driver’, ‘partner’).
 Status is an ENUM type of (‘Yes’, ‘No’).
-`
+```
 
 Write a SQL query to find the  **cancellation rate**  of requests with unbanned users (**both client and driver must not be banned**) each day between  `"2013-10-01"`  and  `"2013-10-03"`.
 
@@ -43,7 +43,7 @@ Return the result table in any order. Round  `Cancellation Rate`  to  **two deci
 The query result format is in the following example:
 
  
-`
+```
 Trips table:
 +----+-----------+-----------+---------+---------------------+------------+
 | Id | Client_Id | Driver_Id | City_Id | Status              | Request_at |
@@ -59,9 +59,9 @@ Trips table:
 | 9  | 3         | 10        | 12      | completed           | 2013-10-03 |
 | 10 | 4         | 13        | 12      | cancelled_by_driver | 2013-10-03 |
 +----+-----------+-----------+---------+---------------------+------------+
-`
 
-`Users table:
+
+Users table:
 +----------+--------+--------+
 | Users_Id | Banned | Role   |
 +----------+--------+--------+
@@ -74,10 +74,10 @@ Trips table:
 | 12       | No     | driver |
 | 13       | No     | driver |
 +----------+--------+--------+
-`
 
 
-`Result table:
+
+Result table:
 +------------+-------------------+
 | Day        | Cancellation Rate |
 +------------+-------------------+
@@ -85,7 +85,7 @@ Trips table:
 | 2013-10-02 | 0.00              |
 | 2013-10-03 | 0.50              |
 +------------+-------------------+
-`
+
 
 On 2013-10-01:
   - There were 4 requests in total, 2 of which were canceled.
@@ -102,3 +102,4 @@ On 2013-10-03:
   - The request with Id=8 was made by a banned client, so it is ignored.
   - Hence there are 2 unbanned request in total, 1 of which were canceled.
   - The Cancellation Rate is (1 / 2) = 0.50
+```
